@@ -1,0 +1,17 @@
+integrator	    = steep		; Steepest descend algorithm for minimization
+emtol		    = 1000.0  	; Stop minimization when the maximum force < 10.0 kJ/mol
+emstep          = 0.01      ; Energy step size
+nsteps		    = 50000	  	; Maximum number of steps to perform
+pbc             = xyz       ; Periodic in all directions
+
+; Parameters of pair interactions
+nstlist		    = 1		
+cutoff-scheme   = Verlet
+ns_type		    = grid		   
+rlist		    = 1.2		  
+coulombtype	    = PME		  
+rcoulomb	    = 1.2		   
+vdwtype         = cutoff
+vdw-modifier    = force-switch
+rvdw-switch     = 1.0
+rvdw		    = 1.2		  		   

@@ -1,0 +1,15 @@
+DISTANCE ATOMS=27,86 LABEL=d1  # Distance between atoms N...N
+DISTANCE ATOMS=23,84 LABEL=d2  # Distance between atoms Si...Si
+
+METAD ...
+    ARG=d1,d2                # Collective variables to bias
+    PACE=100                 # Frequency of hill addition (every 100 steps)
+    HEIGHT=0.5               # Height of Gaussian hills in kJ/mol
+    SIGMA=0.1,0.1            # Width of Gaussian hills for d1 and d2 in nm
+    FILE=HILLS               # File to store hills
+    BIASFACTOR=5             # Bias factor for well-tempered metadynamics
+    TEMP=300                 # Temperature in Kelvin
+... METAD
+
+# Print the distances to a file every 100 steps
+PRINT ARG=d1,d2 STRIDE=100 FILE=output.dat
